@@ -1,7 +1,7 @@
 import json
 
 from tgbot.api import send_message, forward_message, delete_message
-from tgbot.storage import storage, Profile
+from tgbot.storage import storage
 from tgbot.config import FEEDBACK_CHAT_ID
 
 
@@ -9,7 +9,7 @@ def handle_feedback(msg):
     mid = msg['message_id']
     cid = msg['chat']['id']
     if msg['text'] == '/start':
-        r = send_message(cid, 'Напишите своё послание администрации чата')
+        r = send_message(cid, 'Напишите своё сообщение для администрации чата')
         print(r)
     else:
         r = forward_message(cid, mid, FEEDBACK_CHAT_ID)
