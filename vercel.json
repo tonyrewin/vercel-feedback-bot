@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "functions": {
+    "api/webhook.py": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/api/webhook.py"
+    }
+  ]
+}
