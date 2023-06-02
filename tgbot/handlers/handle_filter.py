@@ -14,4 +14,4 @@ def handle_feedback(msg):
     cid = msg['chat']['id']
     for sw in stopwords:
         if sw in msg['text']:
-            erase_member()
+            erase_member(cid, msg['from']['id'])
