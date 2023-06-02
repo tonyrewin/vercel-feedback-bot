@@ -1,7 +1,8 @@
 from sanic import Sanic
 from sanic.response import text
 from tgbot.config import WEBHOOK, FEEDBACK_CHAT_ID
-from tgbot.handlers.handle_feedback import handle_feedback, handle_answer, handle_filter
+from tgbot.handlers.handle_feedback import handle_feedback, handle_answer
+from tgbot.handlers.handle_filter import handle_filter
 from tgbot.api import register_webhook, send_message
 
 
