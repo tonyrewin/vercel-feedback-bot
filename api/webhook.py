@@ -1,7 +1,7 @@
 from sanic import Sanic
 from sanic.response import text
 from tgbot.config import WEBHOOK, FEEDBACK_CHAT_ID
-from tgbot.handlers.handle_feedback import handle_feedback, handle_answer
+from tgbot.handlers.handle_feedback import handle_feedback, handle_answer, handle_filter
 from tgbot.api import register_webhook, send_message
 
 
@@ -19,7 +19,6 @@ async def register(req):
         print(r)
         res = 'ok'
     return text(res)
-        
 
 @app.post('/')
 async def handle(req):
@@ -35,7 +34,8 @@ async def handle(req):
                 elif str(msg['chat']['id']) == FEEDBACK_CHAT_ID:
                     if 'reply_to_message' in msg:
                         handle_answer(msg)
-
+                else:
+                    handle_filter(msg)
     
     except Exception:
         import traceback

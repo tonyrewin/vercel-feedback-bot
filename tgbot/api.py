@@ -41,3 +41,11 @@ def forward_message(cid, mid, to_chat_id):
         f"&from_chat_id={cid}&message_id={mid}"
     r = requests.post(url)
     return r.json()
+
+
+# https://core.telegram.org/bots/api#banchatmember
+def erase_member(chat_id, member_id):
+    url = f"banChatSenderChat?chat_id={cid}&user_id={member_id}&revoke_messages=1"
+    r = requests.post(apiBase + url)
+    print(r.json())
+    return r.json()
