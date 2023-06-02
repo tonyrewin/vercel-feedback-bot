@@ -9,7 +9,7 @@ stopwords = [
     'трейдинг'
 ]
 
-def handle_feedback(msg):
+def handle_filter(msg):
     mid = msg['message_id']
     cid = msg['chat']['id']
     for sw in stopwords:
